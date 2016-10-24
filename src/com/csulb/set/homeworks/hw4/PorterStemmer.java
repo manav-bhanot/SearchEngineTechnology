@@ -1,6 +1,5 @@
 package com.csulb.set.homeworks.hw4;
 
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.*;
 
@@ -83,7 +82,7 @@ public class PorterStemmer {
 				System.out.println("BBye!");
 				System.exit(0);
 			}
-			System.out.println(processToken(word));
+			// System.out.println(processToken(word));
 		}
 	}
 
@@ -104,7 +103,7 @@ public class PorterStemmer {
 			token = token.substring(0, token.length() - 1);
 		}
 		
-		System.out.println("Token after Step 1a : "+token);
+		// System.out.println("Token after Step 1a : "+token);
 
 		// step 1b
 		boolean doStep1bb = false;
@@ -134,7 +133,7 @@ public class PorterStemmer {
 			}
 		}
 		
-		System.out.println("Token after Step 1b : "+token);
+		// System.out.println("Token after Step 1b : "+token);
 
 		// step 1b*, only if the 1b.2 or 1b.3 were performed.
 		if (doStep1bb) {
@@ -148,7 +147,7 @@ public class PorterStemmer {
 			} else if (mEq1.matcher(token).find() && cvcForm.matcher(token).find()) {
 				token = token + "e";
 			}
-			System.out.println("Token after Step 1bb : "+token);
+			// System.out.println("Token after Step 1bb : "+token);
 		}
 
 		// step 1c
@@ -161,7 +160,7 @@ public class PorterStemmer {
 			}
 		}
 		
-		System.out.println("Token after Step 1c : "+token);
+		// System.out.println("Token after Step 1c : "+token);
 
 		// step 2
 		// program this step. for each suffix, see if the token ends in the
@@ -186,7 +185,7 @@ public class PorterStemmer {
 			}
 		}
 		
-		System.out.println("Token after Step 2 : "+token);
+		// System.out.println("Token after Step 2 : "+token);
 
 		// step 3
 		// program this step. the rules are identical to step 2 and you can use
@@ -201,7 +200,7 @@ public class PorterStemmer {
 			}
 		}
 		
-		System.out.println("Token after Step 3 : "+token);
+		// System.out.println("Token after Step 3 : "+token);
 
 		// step 4
 		// program this step similar to step 2/3, except now the stem must have
@@ -223,7 +222,7 @@ public class PorterStemmer {
 			}
 		}
 		
-		System.out.println("Token after Step 4 : "+token);
+		// System.out.println("Token after Step 4 : "+token);
 
 		// step 5
 		// program this step. you have a regex for m=1 and for "Cvc", which
@@ -239,14 +238,14 @@ public class PorterStemmer {
 			}
 		}
 		
-		System.out.println("Token after Step 5a : "+token);
+		// System.out.println("Token after Step 5a : "+token);
 		
 		// Step 5b
 		if (mEq1.matcher(token).find() &&  doubleConsonants.matcher(token).find() && token.endsWith("l")) {
 			token = token.substring(0, token.length() - 1);
 		}
 		
-		System.out.println("Token after Step 5b : "+token);
+		// System.out.println("Token after Step 5b : "+token);
 		
 		return token;
 	}

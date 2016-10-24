@@ -63,10 +63,12 @@ public class DiskInvertedIndex {
          //    the gap and put it in the array.
          //
          // repeat until all postings are read.
-
-
-
-
+         
+         int docIdIndex = 0;
+         while (postings.read(buffer, 0, buffer.length) > 0) { // while we keep reading 4 bytes
+             docIds[docIdIndex] = ByteBuffer.wrap(buffer).getInt();
+             docIdIndex++;
+          }
 
          return docIds;
       }
